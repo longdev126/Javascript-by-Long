@@ -18,6 +18,7 @@ body {
 .parent {
     display: flex;
     justify-content: center;
+
 }
 
 .btn {
@@ -31,6 +32,13 @@ body {
     padding: 20px 30px;
     position: relative;
     overflow: hidden;
+    transition: transform 0.3s ease;
+    animation: blink 1s infinite; /* Áp dụng hiệu ứng nhấp nháy liên tục */
+}
+
+.btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .circle {
@@ -49,5 +57,16 @@ body {
     to {
         transform: translate(-50%, -50%) scale(3);
         opacity: 0;
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        transform: scale(1); /* Kích thước ban đầu */
+        opacity: 1;          /* Độ mờ ban đầu */
+    }
+    50% {
+        transform: scale(1.1); /* Phóng to nút lên 10% */
+        opacity: 0.8;          /* Giảm độ mờ một chút để tạo hiệu ứng nhấp nháy */
     }
 }
